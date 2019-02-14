@@ -1,4 +1,5 @@
 #include <sys/types.h>
+#include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
 
@@ -6,7 +7,7 @@ int main(int argc, char * argv[]) {
 
     printf(argc);
     printf(argv[0]);
-
+    String line;
     while(1){
         printf("Shell->");
         readLine(line);
@@ -20,7 +21,6 @@ int main(int argc, char * argv[]) {
         }
         else if(strcmp(argv[0], "history") == 0){
             exit(0);
-        }
         }
         else if(strcmp(argv[0], "cd") == 0){
             exit(0);
