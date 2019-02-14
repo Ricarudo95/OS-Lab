@@ -7,7 +7,7 @@ int main(int argc, char * argv[]) {
 
     printf(argc);
     printf(argv[0]);
-    String line;
+    char line[32];
     while(1){
         printf("Shell->");
         readLine(line);
@@ -24,7 +24,6 @@ int main(int argc, char * argv[]) {
         }
         else if(strcmp(argv[0], "cd") == 0){
             exit(0);
-        }
         }
         else{
             execute(argv);
