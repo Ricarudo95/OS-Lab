@@ -49,7 +49,7 @@ void execute(argv){
     /* parent process */
     /* parent will wait for the child to complete */
         wait(NULL);
-        printf(“Child Complete!\n”);
+        printf("Child Complete!\n");
         exit (0);
     }
 
