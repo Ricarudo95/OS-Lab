@@ -38,12 +38,12 @@ void execute(argv){
     pid = fork();
 
     if (pid < 0) { /* error occurred */
-        fprintf(stderr, “Fork Failed”);
+        fprintf(stderr, "Fork Failed");
         exit(-1);
     }
 
     else if (pid == 0) { /* child process */
-        execlp(“/bin/ls”, “ls”, NULL);
+        execlp("/bin/ls", "ls", NULL);
     }
     else { 
     /* parent process */
@@ -52,5 +52,14 @@ void execute(argv){
         printf("Child Complete!\n");
         exit (0);
     }
+
+}
+
+void readLine(char * line[]){
+    printf("Reading Line");
+}
+
+void parseLine(char * line[], argv ){
+    printf("Parsing Line");
 
 }
