@@ -28,6 +28,7 @@ void execute(char argc[]){
 
 void readLine(char * line){
     printf("Reading Line");
+    printf(sizeof line);
     if (fgets(line, sizeof line, stdin) == NULL)
     {
             puts("EOF Occurred");
