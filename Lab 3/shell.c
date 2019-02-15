@@ -3,34 +3,6 @@
 #include <stdio.h>
 #include <unistd.h>
 
-int main(int argc, char * argv[]) {
-
-    //printf(&argc);
-    //printf(argv[0]);
-    char line[32];
-    while(1){
-        printf("Shell->");
-        readLine(line);
-        parseLine(line, argv);
-        if(strcmp(argv[0], "exit") == 0){
-            exit(0);
-        }
-        else if(strcmp(argv[0], "help") == 0){
-            exit(0);
-        }
-        }
-        else if(strcmp(argv[0], "history") == 0){
-            exit(0);
-        }
-        else if(strcmp(argv[0], "cd") == 0){
-            exit(0);
-        }
-        else{
-            execute(argv);
-        }
-    }
-}
-
 void execute(int process){
     pid_t pid;
     /* fork a child process */
@@ -63,3 +35,32 @@ void parseLine(char * line[], int argv ){
     printf("Parsing Line");
 
 }
+
+
+int main(int argc, char * argv[]) {
+
+    //printf(&argc);
+    //printf(argv[0]);
+    char line[32];
+    while(1){
+        printf("Shell->");
+        readLine(line);
+        parseLine(line, argv);
+        if(strcmp(argv[0], "exit") == 0){
+            exit(0);
+        }
+        else if(strcmp(argv[0], "help") == 0){
+            exit(0);
+        }
+        else if(strcmp(argv[0], "history") == 0){
+            exit(0);
+        }
+        else if(strcmp(argv[0], "cd") == 0){
+            exit(0);
+        }
+        else{
+            execute(argv);
+        }
+    }
+}
+
