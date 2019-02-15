@@ -45,7 +45,8 @@ int main(int argc, char argv[]) {
     char line[100];
     while(1){
         printf("Shell->");
-        readLine(&line);
+        fgets(line, 100, stdin);
+        //readLine(&line);
         printf("It got past here");
         parseLine(line, argv);
         if(strcmp(argv[0], "exit") == 0){
