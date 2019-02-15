@@ -26,18 +26,18 @@ void execute(int argc){
 
 }
 
-void readLine(char ** line[]){
-    fgets(&line, 32, stdin);
+void readLine(char line[]){
+    fgets(*line, 32, stdin);
     printf("Reading Line");
 }
 
-void parseLine(char ** line[], char ** argv[] ){
+void parseLine(char line[], char argv[] ){
     printf("Parsing Line");
 
 }
 
 
-int main(int argc, char ** argv[]) {
+int main(int argc, char argv[]) {
 
     //printf(&argc);
     //printf(argv[0]);
