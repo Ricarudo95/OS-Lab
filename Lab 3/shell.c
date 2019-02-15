@@ -26,27 +26,31 @@ void execute(char argc[]){
 
 }
 
-void readLine(char * line[]){
+void readLine(char * line){
     printf("Reading Line");
-    fgets(*line, 100, stdin);
+    if (fgets(line, sizeof oOne, stdin) == NULL)
+    {
+            puts("EOF Occurred");
+    }
+
+    
     
 }
 
-void parseLine(char line[], char argv[] ){
+void parseLine(char * line, char * argv ){
     printf("Parsing Line");
 
 }
 
 
-int main(int argc, char argv[]) {
+int main(int argc, char * argv) {
 
     //printf(&argc);
     //printf(argv[0]);
-    char line[100];
+    char * line;
     while(1){
         printf("Shell->");
-        fgets(line, 100, stdin);
-        //readLine(&line);
+        readLine(line);
         printf("It got past here");
         parseLine(line, argv);
         if(strcmp(argv[0], "exit") == 0){
