@@ -5,32 +5,30 @@
 
 #define MEM 100
 
-void execute(char argc[]){
-    pid_t pid;
-    /* fork a child process */
-    pid = fork();
+// void execute(char argc[]){
+//     pid_t pid;
+//     /* fork a child process */
+//     pid = fork();
 
-    if (pid < 0) { /* error occurred */
-        fprintf(stderr, "Fork Failed");
-        exit(-1);
-    }
+//     if (pid < 0) { /* error occurred */
+//         fprintf(stderr, "Fork Failed");
+//         exit(-1);
+//     }
 
-    else if (pid == 0) { /* child process */
-        execlp("/bin/ls", "ls", NULL);
-    }
-    else { 
-    /* parent process */
-    /* parent will wait for the child to complete */
-        wait(NULL);
-        printf("Child Complete!\n");
-        exit (0);
-    }
+//     else if (pid == 0) { /* child process */
+//         execlp("/bin/ls", "ls", NULL);
+//     }
+//     else { 
+//     /* parent process */
+//     /* parent will wait for the child to complete */
+//         wait(NULL);
+//         printf("Child Complete!\n");
+//         exit (0);
+//     }
 
-}
+// }
 
 void readLine(char * line){
-    printf("Reading Line");
-    printf(sizeof line);
     if (fgets(line, sizeof line, stdin) == NULL)
     {
             puts("EOF Occurred");
@@ -40,14 +38,23 @@ void readLine(char * line){
     
 }
 
-void parseLine(char * line, char * argv ){
-    printf("Parsing Line");
+void parseLine(char * line, char ** argv ){
+    while(*line != '\0'){
+        while(*line == ' ' || *line == '\t' || * line == '\n'){
+            *line++ = '\0';
+            *argv++ = line;
+        
+        while{
+            line++;
+        }
 
+    }
+    *argv = '\0';
 }
 
 
 int main(void) {
-
+    printf("Start code");
     char  cad[MEM];             
     char  *argv[MEM]; 
     char  *gdir;
@@ -56,16 +63,17 @@ int main(void) {
     char buf[MEM];
     pid_t pid;
     int status;
-    
-    printf(cad);
     //printf(argv[0]);
 
     while(1){
         printf("Shell->");
         readLine(cad);
-        printf("It got past here");
+        
         parseLine(cad, argv);
+        printf("\n");
+        printf(argv[0]);
         if(strcmp(argv[0], "exit") == 0){
+            
             exit(0);
         }
         else if(strcmp(argv[0], "help") == 0){
@@ -78,7 +86,7 @@ int main(void) {
             exit(0);
         }
         else{
-            execute(argv);
+            //execute(argv);
         }
     }
 }
