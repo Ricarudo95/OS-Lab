@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void execute(int process){
+void execute(int argc){
     pid_t pid;
     /* fork a child process */
     pid = fork();
@@ -26,18 +26,18 @@ void execute(int process){
 
 }
 
-void readLine(char * line[]){
-    fgets(line, 32, stdin);
+void readLine(char ** line[]){
+    fgets(&line, 32, stdin);
     printf("Reading Line");
 }
 
-void parseLine(char * line[], int argv ){
+void parseLine(char ** line[], char ** argv[] ){
     printf("Parsing Line");
 
 }
 
 
-int main(int argc, char * argv[]) {
+int main(int argc, char ** argv[]) {
 
     //printf(&argc);
     //printf(argv[0]);
