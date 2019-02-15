@@ -3,7 +3,7 @@
 #include <stdio.h>
 #include <unistd.h>
 
-void execute(int argc){
+void execute(char argc[]){
     pid_t pid;
     /* fork a child process */
     pid = fork();
@@ -27,7 +27,7 @@ void execute(int argc){
 }
 
 void readLine(char line[]){
-    fgets(*line, 32, stdin);
+    fgets(line, 32, stdin);
     printf("Reading Line");
 }
 
