@@ -26,9 +26,10 @@ void execute(char argc[]){
 
 }
 
-void readLine(char line[]){
-    fgets(line, 32, stdin);
+void readLine(char * line[]){
     printf("Reading Line");
+    fgets(*line, 100, stdin);
+    
 }
 
 void parseLine(char line[], char argv[] ){
@@ -41,10 +42,10 @@ int main(int argc, char argv[]) {
 
     //printf(&argc);
     //printf(argv[0]);
-    char line[32];
+    char line[100];
     while(1){
         printf("Shell->");
-        readLine(*line);
+        readLine(&line);
         printf("It got past here");
         parseLine(line, argv);
         if(strcmp(argv[0], "exit") == 0){
