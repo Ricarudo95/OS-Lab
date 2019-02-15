@@ -39,17 +39,16 @@ void readLine(char * line){
 }
 
 void parseLine(char * line, char ** argv ){
-    while(*line != '\0'){
-        while(*line == ' ' || *line == '\t' || * line == '\n'){
-            *line++ = '\0';
-            *argv++ = line;
-        
-        while{
-            line++;
-        }
+    while (*line != '\0') {       
+        while (*line == ' ' || *line == '\t' || *line == '\n')
 
-    }
-    *argv = '\0';
+            *line++ = '\0';     
+            *argv++ = line; 
+
+        while (*line != '\0' && *line != ' ' && *line != '\t' && *line != '\n') 
+            line++;             
+    } 
+    *argv = '\0';   
 }
 
 
