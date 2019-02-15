@@ -5,8 +5,8 @@
 
 int main(int argc, char * argv[]) {
 
-    printf(argc);
-    printf(argv[0]);
+    //printf(&argc);
+    //printf(argv[0]);
     char line[32];
     while(1){
         printf("Shell->");
@@ -31,7 +31,7 @@ int main(int argc, char * argv[]) {
     }
 }
 
-void execute(argv){
+void execute(int process){
     pid_t pid;
     /* fork a child process */
     pid = fork();
@@ -55,10 +55,11 @@ void execute(argv){
 }
 
 void readLine(char * line[]){
+    fgets(line, 32, stdin);
     printf("Reading Line");
 }
 
-void parseLine(char * line[], argv ){
+void parseLine(char * line[], int argv ){
     printf("Parsing Line");
 
 }
