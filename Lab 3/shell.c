@@ -53,7 +53,7 @@ int main(void) {
     char  *gdir;
     char  *dir;
     char  *to;
-    char buf[TAM];
+    char buf[MEM];
     pid_t pid;
     int status;
     
