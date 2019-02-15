@@ -3,6 +3,8 @@
 #include <stdio.h>
 #include <unistd.h>
 
+#define MEM 100
+
 void execute(char argc[]){
     pid_t pid;
     /* fork a child process */
@@ -44,16 +46,25 @@ void parseLine(char * line, char * argv ){
 }
 
 
-int main(int argc, char * argv) {
+int main(void) {
 
-    //printf(&argc);
+    char  cad[MEM];             
+    char  *argv[MEM]; 
+    char  *gdir;
+    char  *dir;
+    char  *to;
+    char buf[TAM];
+    pid_t pid;
+    int status;
+    
+    printf(cad);
     //printf(argv[0]);
-    char * line;
+
     while(1){
         printf("Shell->");
-        readLine(line);
+        readLine(cad);
         printf("It got past here");
-        parseLine(line, argv);
+        parseLine(cad, argv);
         if(strcmp(argv[0], "exit") == 0){
             exit(0);
         }
