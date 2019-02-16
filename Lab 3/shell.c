@@ -56,13 +56,14 @@ int main(void) {
     printf("Start code");
     char  cad[MEM];             
     char  *argv[MEM]; 
-    char  *gdir;
-    char  *dir;
-    char  *to;
-    char buf[MEM];
+    char  history[MEM];
+    int count = 0;
     pid_t pid;
     int status;
-    //printf(argv[0]);
+
+    for (int x = 0; x<MEM;x++){
+        strcpy(history[x]," ");
+    }
 
     while(1){
         printf("Shell->");
@@ -70,19 +71,23 @@ int main(void) {
         
         parseLine(cad, argv);
         printf("\n");
-        printf(argv[0]);
+        
         if(strcmp(argv[0], "exit") == 0){
-            
+            printf("The shell will be exting now...")
             exit(0);
         }
         else if(strcmp(argv[0], "help") == 0){
-            exit(0);
+            strcpy(history[count], "help");
+            count++;
+            
         }
         else if(strcmp(argv[0], "history") == 0){
-            exit(0);
+            strcpy(history[count], "help");
+            count++;
         }
         else if(strcmp(argv[0], "cd") == 0){
-            exit(0);
+            strcpy(history[count], "help");
+            count++;
         }
         else{
             //execute(argv);
